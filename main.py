@@ -1,4 +1,4 @@
-from car import CompactCar, SUV
+from car_manager import add_car_menu
 from parking_lot import ParkingLot
 
 def main():
@@ -14,21 +14,7 @@ def main():
         choice = input("Enter your choice: ")
         
         if choice == "1":
-            plate = input("Enter plate: ")
-            brand = input("Enter brand: ")
-            model = input("Enter model: ")
-            owner = input("Enter owner: ")
-            hourly_rate = float(input("Enter hourly rate: "))
-            car_type = input("Enter car type (compact or suv): ").lower()
-            
-            if car_type == "compact":
-                car = CompactCar(plate, brand, model, owner, hourly_rate)
-            elif car_type == "suv":
-                car = SUV(plate, brand, model, owner, hourly_rate)
-            else:
-                print("Invalid car type.")
-                continue
-            parking.add_car(car)
+            add_car_menu(parking)
         elif choice == "2":
             plate = input("Enter plate of the car to remove: ")
             parking.remove_car(plate)

@@ -40,6 +40,10 @@
    'C:\\Users\\dario\\Desktop\\6to semestre\\c_ompiladores\\programa '
    'POO\\car.py',
    'PYMODULE'),
+  ('car_manager',
+   'C:\\Users\\dario\\Desktop\\6to semestre\\c_ompiladores\\programa '
+   'POO\\car_manager.py',
+   'PYMODULE'),
   ('contextlib',
    'C:\\Users\\dario\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\contextlib.py',
    'PYMODULE'),
