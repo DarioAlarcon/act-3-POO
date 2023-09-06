@@ -6,13 +6,19 @@ class Car:
         self.owner = owner
         self.hourly_rate = hourly_rate
     
-    def display(self):
-        return f"Plate: {self.plate} | Brand: {self.brand} | Model: {self.model} | Owner: {self.owner}"
-
-class CompactCar(Car):
     def calculate_parking_fee(self, hours):
         return self.hourly_rate * hours
 
-class SUV(Car):
+    def display(self):
+        return f"Plate: {self.plate} | Brand: {self.brand} | Model: {self.model} | Owner: {self.owner}"
+    
+class Taxi(Car):
+    def __init__(self, plate, brand, model, owner, hourly_rate, codigo):
+        super().__init__(plate, brand, model, owner, hourly_rate)
+        self.codigo = codigo
+    
     def calculate_parking_fee(self, hours):
-        return self.hourly_rate * hours * 1.2
+        return self.hourly_rate * hours * 0.5
+
+    def display(self):
+        return f"Plate: {self.plate} | Brand: {self.brand} | Model: {self.model} | Owner: {self.owner} | Codigo: {self.codigo}"

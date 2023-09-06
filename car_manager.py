@@ -1,5 +1,5 @@
 import re
-from car import CompactCar, SUV
+from car import Taxi, Car
 
 def validate_plate(plate):
     return re.match(r"^[A-Za-z]{3}\d{3}$", plate)
@@ -32,14 +32,18 @@ def add_car_menu(parking):
         return
     
     hourly_rate = float(input("Enter hourly rate: "))
-    car_type = input("Enter car type (compact or suv): ").lower()
+    car_type = input("Is it a taxi? (yes/no): ").lower()
     
-    if car_type == "compact":
-        car = CompactCar(plate, brand, model, owner, hourly_rate)
-    elif car_type == "suv":
-        car = SUV(plate, brand, model, owner, hourly_rate)
+    if car_type == "yes":
+        code = input("Enter a 5-digit code: ")
+        if not re.match(r"^\d{5}$", code):
+            print("Invalid code format. Please enter 5 digits.")
+            return
+        car = Taxi(plate, brand, model, owner, hourly_rate, code)
+    elif car_type == "no":
+        car = Car(plate, brand, model, owner, hourly_rate)
     else:
-        print("Invalid car type.")
+        print("Invalid input for taxi type.")
         return
     
     parking.add_car(car)
